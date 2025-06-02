@@ -845,7 +845,7 @@
                                                     <path d="M9 11l6 0" />
                                                     <path d="M9 15l4 0" />
                                                 </svg></span>
-                                            <span class="nav-link-title"> Rekap Karyawan </span>
+                                            <span class="nav-link-title"> Rekap Presensi </span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
