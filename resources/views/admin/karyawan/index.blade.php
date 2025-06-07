@@ -26,9 +26,33 @@
 <!-- BEGIN PAGE BODY -->
 <div class="page-body">
     <div class="container-xl">
-        <div class="row row-deck row-cards">
-
+        <div class="card">
+            <div class="card-body p-0">
+                <div id="table-default" class="table-responsive">
+                    <table id="karyawan" class="table table-karyawan">
+                        <thead>
+                            <tr>
+                                <th><button class="table-sort" data-sort="sort-name">Photo</button></th>
+                                <th><button class="table-sort" data-sort="sort-city">Name</button></th>
+                                <th><button class="table-sort" data-sort="sort-type">Position</button></th>
+                                <th><button class="table-sort" data-sort="sort-score">Gender</button></th>
+                                <th><button class="table-sort" data-sort="sort-date">Address</button></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-tbody">
+                            <tr>
+                                <td class="sort-city">Cedar Point, United States</td>
+                                <td class="sort-type">RMC Hybrid</td>
+                                <td class="sort-score">100,0%</td>
+                                <td class="sort-date" data-date="1733615799">December 08, 2024</td>
+                                <td class="sort-quantity">74</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 @endsection
