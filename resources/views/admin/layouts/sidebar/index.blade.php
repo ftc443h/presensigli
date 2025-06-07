@@ -721,17 +721,23 @@
         </div>
         <div class="nav-item dropdown">
             <a href="#" class="nav-link d-flex lh-1 p-0 px-2" data-bs-toggle="dropdown" aria-label="Open user menu">
-                <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"> </span>
+                <span class="avatar avatar-sm" id="logo-global-lintas"> </span>
                 <div class="d-none d-xl-block ps-2">
-                    <div id="nav-H1">Paweł Kuna</div>
-                    <div id="nav-H1" class="mt-1 small">UI Designer</div>
+                    <div id="nav-H1">{{ Auth::user()->name }}</div>
+                    <div id="nav-H1" class="mt-1 small">{{ Auth::user()->role }}</div>
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <a href="#" class="dropdown-item">Status</a>
-                <a href="./settings.html" class="dropdown-item">My Profile</a>
+                <a href="#" class="dropdown-item"> <span class="align-middle">My Profile</span> </a>
                 <div class="dropdown-divider"></div>
-                <a href="./sign-in.html" class="dropdown-item">Logout</a>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                    Log Out
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
         </div>
     </div>
