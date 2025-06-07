@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard/dashboard';
 
     /**
      * Create a new controller instance.
@@ -36,5 +36,20 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
+    }
+
+    /**
+     * Override untuk memungkinkan login pakai email atau username.
+     */
+
+    public function username()
+    {
+        $login = request()->input('username');
+
+        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+        request()->merge([$field => $login]);
+
+        return $field;
     }
 }
