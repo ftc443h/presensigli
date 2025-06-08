@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-6">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" id="add-employee" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-primary" id="add-employee" data-bs-toggle="modal" data-bs-target="#addEmployee">
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -43,20 +43,60 @@
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Employee</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                ...
+                                <form method="POST" id="postAddEmployee">
+
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-floating mb-3">
+                                                <input type="file" name="photo" class="form-control" id="floatingInput">
+                                                <label for="floatingInput">Photo</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Please Input Name Employee">
+                                                <label for="floatingInput">Name Employee</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>-- Please Select Gender Employee --</option>
+                                                <option value="laki-laki">Laki-Laki</option>
+                                                <option value="perempuan">Perempuan</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" name="jabatan" class="form-control" id="floatingInput" placeholder="Please Input Role Employee">
+                                                <label for="floatingInput">Role Employee</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" placeholder="Please Input Address Employee" id="floatingTextarea"></textarea>
+                                                <label for="floatingTextarea">Address Employee</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button Add Employee -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save Employee</button>
+                                    </div>
+
+                                </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
