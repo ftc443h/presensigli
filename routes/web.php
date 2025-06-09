@@ -13,11 +13,12 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
 
     // Group Prefix Dashboard
-    Route::prefix('dashboard')->group(function () {
+    Route::middleware(['role:admin'])->prefix('dashboard')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.index');
     });
 
-    // Group Prexif Karyawan
-
-
+    // Group Prefix Karyawan
+    Route::middleware(['role:karyawan'])->prefix('karyawan')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'karyawan'])->name('karyawan.dashboard');
+    });
 });
