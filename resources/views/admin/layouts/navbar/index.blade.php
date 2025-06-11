@@ -41,8 +41,8 @@
                                 <span class="nav-link-title"> Karyawan </span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./">
+                        <li class="nav-item {{ ($active === 'masterData') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('master_data.index') }}">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -54,8 +54,8 @@
                                 <span class="nav-link-title"> Master Data </span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./">
+                        <li class="nav-item {{ ($active === 'rekapPresensi') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('rekap_presensi.index') }}">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-notes">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
