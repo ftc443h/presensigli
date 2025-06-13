@@ -7,13 +7,9 @@
                 <ul class="list-inline list-inline-dots mb-0">
                     <li class="list-inline-item"><a href="https://tabler.io/docs" target="_blank" class="link-secondary"
                             rel="noopener">Home</a></li>
-                    <li class="list-inline-item"><a href="./license.html" class="link-secondary">Karyawan</a></li>
-                    <li class="list-inline-item">
-                        <a href="{{ route('jabatan.index') }}" class="link-secondary" rel="noopener">Master Data</a>
-                    </li>
                     <li class="list-inline-item">
                         <a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary"
-                            rel="noopener">Rekap Karyawan</a>
+                            rel="noopener">Rekap Presensi</a>
                     </li>
                     <li class="list-inline-item">
                         <a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary"
