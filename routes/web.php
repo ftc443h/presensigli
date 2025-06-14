@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\KaryawanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,9 @@ Route::middleware(['auth'])->group(function () {
         });
         
         // Group Prefix Karyawan
-        // Route::prefix('karyawan')->group(function () {
-        //     //
-        // });
+        Route::prefix('karyawan')->group(function () {
+            Route::get('/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
+        });
         
         // Group Prefix Master Data
         Route::prefix('master-data')->group(function () {

@@ -5,7 +5,7 @@
                 <div class="col">
                     <!-- BEGIN NAVBAR MENU -->
                     <ul class="navbar-nav">
-                        <li class="nav-item {{ (Request::is('dashboard/dashboard') ? 'active' : '') }}">
+                        <li class="nav-item {{ Request::is('dashboard/dashboard') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('dashboard.index') }}">
                                 <span
                                     class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->
@@ -19,8 +19,8 @@
                                 <span class="nav-link-title"> Home </span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./">
+                        <li class="nav-item {{ Request::is('karyawan/karyawan') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('karyawan.index') }}">
                                 <span
                                     class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -39,7 +39,7 @@
                                 <span class="nav-link-title"> Karyawan </span>
                             </a>
                         </li>
-                        <li class="nav-item {{ (Request::is('jabatan/jabatan') ? 'active' : '') }}">
+                        <li class="nav-item {{ Request::is('master-data/jabatan') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('jabatan.index') }}">
                                 <span
                                     class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->
