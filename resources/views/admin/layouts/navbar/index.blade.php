@@ -39,7 +39,7 @@
                                 <span class="nav-link-title"> Karyawan </span>
                             </a>
                         </li>
-                        <li class="nav-item {{ (Request::is('dashboard/jabatan') ? 'active' : '') }}">
+                        <li class="nav-item {{ (Request::is('jabatan/jabatan') ? 'active' : '') }}">
                             <a class="nav-link" href="{{ route('jabatan.index') }}">
                                 <span
                                     class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->

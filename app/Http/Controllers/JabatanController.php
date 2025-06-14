@@ -15,7 +15,7 @@ class JabatanController extends Controller
     {
         // $user = Auth::user();
         $jabatans = Jabatan::all();
-        return view('admin.jabatan.index', compact('jabatans'));
+        return view('admin.master_data.index', compact('jabatans'));
     }
 
     /**
@@ -23,7 +23,7 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        return view('admin.jabatan.create');
+        //
     }
 
     /**
@@ -66,7 +66,7 @@ class JabatanController extends Controller
      */
     public function edit(Jabatan $jabatan)
     {
-        return view('admin.jabatan.edit', compact('jabatan'));
+        //
     }
 
     /**
