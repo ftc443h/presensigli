@@ -28,8 +28,8 @@
                                             <span
                                                 class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/currency-dollar -->
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                     class="icon icon-tabler icons-tabler-outline icon-tabler-user">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                     <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -38,8 +38,8 @@
                                             </span>
                                         </div>
                                         <div class="col">
-                                            <div class="font-weight-medium">Total Karyawan</div>
-                                            <div class="text-secondary">12 waiting payments</div>
+                                            <div class="font-weight-medium">Total Karyawan Aktif</div>
+                                            <div class="text-secondary">{{ $user }} Karyawan</div>
                                         </div>
                                     </div>
                                 </div>
@@ -53,8 +53,8 @@
                                             <span
                                                 class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/shopping-cart -->
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                     class="icon icon-tabler icons-tabler-outline icon-tabler-user-check">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                     <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">Total Hadir</div>
-                                            <div class="text-secondary">32 shipped</div>
+                                            <div class="text-secondary">0 Karyawan</div>
                                         </div>
                                     </div>
                                 </div>
@@ -79,8 +79,8 @@
                                             <span
                                                 class="bg-x text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-x -->
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                     class="icon icon-tabler icons-tabler-outline icon-tabler-user-x">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                     <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -92,7 +92,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">Total Alpa</div>
-                                            <div class="text-secondary">16 today</div>
+                                            <div class="text-secondary">0 Karyawan</div>
                                         </div>
                                     </div>
                                 </div>
@@ -106,8 +106,8 @@
                                             <span
                                                 class="bg-facebook text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-facebook -->
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                     class="icon icon-tabler icons-tabler-outline icon-tabler-user-minus">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                     <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -117,8 +117,8 @@
                                             </span>
                                         </div>
                                         <div class="col">
-                                            <div class="font-weight-medium">Total Cuti/Izin/Sakit</div>
-                                            <div class="text-secondary">21 today</div>
+                                            <div class="font-weight-medium">Total Sakit, Izin, & Cuti</div>
+                                            <div class="text-secondary">0 Karyawan</div>
                                         </div>
                                     </div>
                                 </div>
