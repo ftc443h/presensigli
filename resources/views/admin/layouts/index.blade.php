@@ -8,6 +8,7 @@
     <title>PT. Global Lintas Iramada</title>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('admin/assets/img/logo/logo.png') }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- BEGIN PAGE LEVEL STYLES -->
     <link href="{{ asset(('admin/assets/libs/jsvectormap/dist/jsvectormap.css?1744816593')) }}" rel="stylesheet" />
@@ -26,6 +27,14 @@
     <!-- BEGIN DEMO STYLES -->
     <link href="{{ asset('admin/assets/preview/css/demo.css?1744816593') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('admin/assets/css/custome.css') }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    
     <!-- END DEMO STYLES -->
     <!-- BEGIN CUSTOM FONT -->
     <style>
@@ -34,7 +43,7 @@
     <!-- END CUSTOM FONT -->
 </head>
 
-<body>
+<body data-success="{{ session('success') }}" data-error="{{ session('error') }}">
     <!-- BEGIN GLOBAL THEME SCRIPT -->
     <script src="{{ asset('admin/assets/js/tabler-theme.min.js?1744816593') }}"></script>
     <!-- END GLOBAL THEME SCRIPT -->
@@ -43,14 +52,14 @@
         <header class="navbar navbar-expand-md d-print-none" id="nav-sidebar">
 
             <!-- Sidebar Start -->
-             @include('admin.layouts.sidebar.index')
+            @include('admin.layouts.sidebar.index')
             <!-- Sidebar End -->
 
         </header>
         <header class="navbar-expand-md">
 
             <!-- Navbar Start -->
-             @include('admin.layouts.navbar.index')
+            @include('admin.layouts.navbar.index')
             <!-- Navbar End -->
 
         </header>
@@ -58,13 +67,13 @@
         <div class="page-wrapper">
 
             <!-- Dashboard Start -->
-             @yield('content')
+            @yield('content')
             <!-- Dashboard End -->
-            
+
             <!-- Footer Start -->
-             @include('admin.layouts.footer.index')
+            @include('admin.layouts.footer.index')
             <!-- Footer End -->
-            
+
         </div>
     </div>
     <!-- BEGIN PAGE MODALS -->
@@ -186,6 +195,10 @@
     <script src="{{ asset('admin/assets/libs/jsvectormap/dist/jsvectormap.min.js?1744816593') }}" defer></script>
     <script src="{{ asset('admin/assets/libs/jsvectormap/dist/maps/world.js?1744816593') }}" defer></script>
     <script src="{{ asset('admin/assets/libs/jsvectormap/dist/maps/world-merc.js?1744816593')}}" defer></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
     <!-- END PAGE LIBRARIES -->
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="{{ asset('admin/assets/js/tabler.min.js?1744816593') }}" defer></script>
@@ -194,6 +207,9 @@
     <script src="{{ asset('admin/assets/preview/js/demo.min.js?1744816593') }}" defer></script>
     <!-- END DEMO SCRIPTS -->
     <!-- BEGIN PAGE SCRIPTS -->
+
+    @yield('scripts')
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             window.ApexCharts &&

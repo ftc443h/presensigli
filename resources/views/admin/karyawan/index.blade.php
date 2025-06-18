@@ -4,6 +4,7 @@
 <!-- BEGIN PAGE HEADER -->
 <div class="page-header d-print-none">
     <div class="container-xl">
+
         <div class="row g-2 align-items-center">
             <div class="col">
                 <!-- Page pre-title -->
@@ -43,7 +44,7 @@
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-labelledby="modalTitle" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -59,40 +60,41 @@
                                         </svg></span> Add Employee</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+
                             <div class="modal-body">
-                                <form method="POST" id="postAddEmployee">
-
-
+                                <form method="POST" action="{{ route('karyawan.insertKaryawan') }}" id="postAddEmployee" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="id" id="employee_id">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-floating mb-3">
-                                                <input type="file" name="photo" class="form-control" id="floatingInput">
-                                                <label for="floatingInput">Photo</label>
+                                                <input type="file" name="foto" value="foto" class="form-control" id="foto">
+                                                <label for="foto">Photo</label>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating mb-3">
-                                                <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Please Input Name Employee">
-                                                <label for="floatingInput">Name Employee</label>
+                                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name" placeholder="Please Input Name Employee">
+                                                <label for="name">Name Employee</label>
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option selected>-- Please Select Gender Employee --</option>
+                                            <select class="form-select" value="" name="jenis_kelamin" id="jenis_kelamin" aria-label="Default select example">
+                                                <option selected value="">-- Please Select Gender Employee --</option>
                                                 <option value="laki-laki">Laki-Laki</option>
                                                 <option value="perempuan">Perempuan</option>
                                             </select>
                                         </div>
                                         <div class="col-12 mt-3">
                                             <div class="form-floating mb-3">
-                                                <input type="text" name="jabatan" class="form-control" id="floatingInput" placeholder="Please Input Role Employee">
-                                                <label for="floatingInput">Role Employee</label>
+                                                <input type="text" name="jabatan" value="jabatan" class="form-control" id="jabatan" placeholder="Please Input Role Employee">
+                                                <label for="jabatan">Role Employee</label>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating">
-                                                <textarea class="form-control" placeholder="Please Input Address Employee" id="floatingTextarea"></textarea>
-                                                <label for="floatingTextarea">Address Employee</label>
+                                                <textarea class="form-control" value="alamat" name="alamat" placeholder="Please Input Address Employee" id="alamat"></textarea>
+                                                <label for="alamat">Address Employee</label>
                                             </div>
                                         </div>
                                     </div>
@@ -100,9 +102,8 @@
                                     <!-- Button Add Employee -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save Employee</button>
+                                        <button type="submit" id="save" class="btn btn-primary">Save Employee</button>
                                     </div>
-
                                 </form>
                             </div>
 
@@ -146,31 +147,55 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal Add/Edit -->
+        <div class="modal fade" id="addEmployee" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><span id="modalTitleText">Edit Employee</span></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="postAddEmployee" method="POST" action="{{ route('karyawan.insertKaryawan') }}" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" id="employee_id" name="id">
+                            <div class="mb-3"><input type="file" class="form-control" id="foto" name="foto"><label for="foto">Photo</label></div>
+                            <div class="mb-3"><input type="text" class="form-control" id="name" name="name" placeholder="Name"><label for="name">Name</label></div>
+                            <div class="mb-3">
+                                <select class="form-select" id="jenis_kelamin" name="jenis_kelamin">
+                                    <option value="">Select Gender</option>
+                                    <option value="laki-laki">Laki-Laki</option>
+                                    <option value="perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                            <div class="mb-3"><input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Role"><label for="jabatan">Role</label></div>
+                            <div class="mb-3"><textarea class="form-control" id="alamat" name="alamat" placeholder="Address"></textarea><label for="alamat">Address</label></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" id="submitEmployee" class="btn btn-primary">Save Employee</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="card mt-3">
             <div class="card-body p-0">
                 <div id="table-default" class="table-responsive">
                     <table id="karyawan" class="table table-karyawan">
                         <thead>
                             <tr>
-                                <th><button class="table-sort" data-sort="sort-name">No</button></th>
-                                <th><button class="table-sort" data-sort="sort-name">Photo</button></th>
-                                <th><button class="table-sort" data-sort="sort-city">Name</button></th>
-                                <th><button class="table-sort" data-sort="sort-type">Position</button></th>
-                                <th><button class="table-sort" data-sort="sort-score">Gender</button></th>
-                                <th><button class="table-sort" data-sort="sort-date">Address</button></th>
-                                <th><button class="table-sort" data-sort="sort-date">Action</button></th>
+                                <th>No</th>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Gender</th>
+                                <th>Address</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody class="table-tbody">
-                            <tr>
-                                <td class="sort-city">Cedar Point, United States</td>
-                                <td class="sort-type">RMC Hybrid</td>
-                                <td class="sort-score">100,0%</td>
-                                <td class="sort-date" data-date="1733615799">December 08, 2024</td>
-                                <td class="sort-quantity">74</td>
-                                <td class="sort-quantity">74</td>
-                            </tr>
-                        </tbody>
                     </table>
                 </div>
             </div>
@@ -178,4 +203,8 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+@vite(['resources/js/app.js'])
 @endsection

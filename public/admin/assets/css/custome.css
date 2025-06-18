@@ -36,3 +36,21 @@
     position: relative;
     float: right;
 }
+
+/* Supaya terlihat di atas tabel */
+.dataTables_processing {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 10px;
+    margin-left: -20px !important;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #0d6efd;
+    display: flex;
+    align-items: center !important;
+    gap: 10px;
+}
