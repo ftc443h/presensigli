@@ -1,222 +1,132 @@
 @extends('admin.layouts.index')
 @section('content')
-
-<!-- BEGIN PAGE HEADER -->
-<div class="page-header d-print-none">
-    <div class="container-xl">
-        <div class="row g-2 align-items-center">
-            <div class="col">
-                <!-- Page pre-title -->
-                <h2 class="page-title"> <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-1">
-                            <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-                        </svg></span> Dashboard</h2>
+    <!-- BEGIN PAGE HEADER -->
+    <div class="page-header d-print-none">
+        <div class="container-xl">
+            <div class="row g-2 align-items-center">
+                <div class="col">
+                    <!-- Page pre-title -->
+                    {{-- <div class="page-pretitle">Overview</div> --}}
+                    <h2 class="page-title">Dashboard</h2>
+                </div>
+                <!-- Page title actions -->
             </div>
-            <!-- Page title actions -->
         </div>
     </div>
-</div>
-<!-- END PAGE HEADER -->
-<!-- BEGIN PAGE BODY -->
-<div class="page-body">
-    <div class="container-xl">
-        <div class="row row-deck row-cards">
-            <div class="col-sm-6 col-lg-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="subheader">Sales</div>
-                            <div class="ms-auto lh-1">
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle text-secondary" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item active" href="#">Last 7 days</a>
-                                        <a class="dropdown-item" href="#">Last 30 days</a>
-                                        <a class="dropdown-item" href="#">Last 3 months</a>
+    <!-- END PAGE HEADER -->
+    <!-- BEGIN PAGE BODY -->
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-deck row-cards">
+                <div class="col-12">
+                    <div class="row row-cards">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span
+                                                class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/currency-dollar -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-user">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">Total Karyawan Aktif</div>
+                                            <div class="text-secondary">{{ $user }} Karyawan</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="h1 mb-3">75%</div>
-                        <div class="d-flex mb-2">
-                            <div>Conversion rate</div>
-                            <div class="ms-auto">
-                                <span class="text-green d-inline-flex align-items-center lh-1">
-                                    7%
-                                    <!-- Download SVG icon from http://tabler.io/icons/icon/trending-up -->
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon ms-1 icon-2">
-                                        <path d="M3 17l6 -6l4 4l8 -8" />
-                                        <path d="M14 7l7 0l0 7" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="progress progress-sm">
-                            <div
-                                class="progress-bar bg-primary"
-                                style="width: 75%"
-                                role="progressbar"
-                                aria-valuenow="75"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
-                                aria-label="75% Complete">
-                                <span class="visually-hidden">75% Complete</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="subheader">Revenue</div>
-                            <div class="ms-auto lh-1">
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle text-secondary" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item active" href="#">Last 7 days</a>
-                                        <a class="dropdown-item" href="#">Last 30 days</a>
-                                        <a class="dropdown-item" href="#">Last 3 months</a>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span
+                                                class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/shopping-cart -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-user-check">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+                                                    <path d="M15 19l2 2l4 -4" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">Total Hadir</div>
+                                            <div class="text-secondary">0 Karyawan</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-baseline">
-                            <div class="h1 mb-0 me-2">$4,300</div>
-                            <div class="me-auto">
-                                <span class="text-green d-inline-flex align-items-center lh-1">
-                                    8%
-                                    <!-- Download SVG icon from http://tabler.io/icons/icon/trending-up -->
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon ms-1 icon-2">
-                                        <path d="M3 17l6 -6l4 4l8 -8" />
-                                        <path d="M14 7l7 0l0 7" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="chart-revenue-bg" class="rounded-bottom chart-sm"></div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="subheader">New clients</div>
-                            <div class="ms-auto lh-1">
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle text-secondary" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item active" href="#">Last 7 days</a>
-                                        <a class="dropdown-item" href="#">Last 30 days</a>
-                                        <a class="dropdown-item" href="#">Last 3 months</a>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span
+                                                class="bg-x text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-x -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-user-x">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" />
+                                                    <path d="M22 22l-5 -5" />
+                                                    <path d="M17 22l5 -5" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">Total Alpa</div>
+                                            <div class="text-secondary">0 Karyawan</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-baseline">
-                            <div class="h1 mb-3 me-2">6,782</div>
-                            <div class="me-auto">
-                                <span class="text-yellow d-inline-flex align-items-center lh-1">
-                                    0%
-                                    <!-- Download SVG icon from http://tabler.io/icons/icon/minus -->
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon ms-1 icon-2">
-                                        <path d="M5 12l14 0" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                        <div id="chart-new-clients" class="chart-sm"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="subheader">Active users</div>
-                            <div class="ms-auto lh-1">
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle text-secondary" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item active" href="#">Last 7 days</a>
-                                        <a class="dropdown-item" href="#">Last 30 days</a>
-                                        <a class="dropdown-item" href="#">Last 3 months</a>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span
+                                                class="bg-facebook text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-facebook -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-user-minus">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4c.348 0 .686 .045 1.009 .128" />
+                                                    <path d="M16 19h6" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">Total Sakit, Izin, & Cuti</div>
+                                            <div class="text-secondary">0 Karyawan</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-baseline">
-                            <div class="h1 mb-3 me-2">2,986</div>
-                            <div class="me-auto">
-                                <span class="text-green d-inline-flex align-items-center lh-1">
-                                    4%
-                                    <!-- Download SVG icon from http://tabler.io/icons/icon/trending-up -->
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="icon ms-1 icon-2">
-                                        <path d="M3 17l6 -6l4 4l8 -8" />
-                                        <path d="M14 7l7 0l0 7" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                        <div id="chart-active-users" class="chart-sm"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
