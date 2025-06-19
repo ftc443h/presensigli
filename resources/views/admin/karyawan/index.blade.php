@@ -27,7 +27,8 @@
 <!-- BEGIN PAGE BODY -->
 <div class="page-body">
     <div class="container-xl">
-        <div class="row">
+        <div class="row row-deck row-cards">
+            <div></div>
             <div class="col-6">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" id="add-employee" data-bs-toggle="modal" data-bs-target="#addEmployee">
