@@ -124,7 +124,7 @@ class LokasiPresensiController extends Controller
         } catch (\Throwable $th) {
             return back()->with(
                 'error',
-                'Terjadi kesalahan dalam mengubah data lokasi presensi!' . $th->getMessage()
+                'Terjadi kesalahan dalam mengubah data lokasi presensi!'
             );
         }
     }

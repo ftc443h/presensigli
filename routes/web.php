@@ -25,6 +25,10 @@ Route::middleware(['auth'])->group(function () {
         // Group Prefix Karyawan
         Route::prefix('karyawan')->group(function () {
             Route::get('/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
+            Route::post('/karyawan', [KaryawanController::class, 'store'])->name('karyawan.store');
+            Route::put('/karyawan/{karyawan}', [KaryawanController::class, 'update'])->name('karyawan.update');
+            Route::patch('/karyawan/{karyawan}', [KaryawanController::class, 'update'])->name('karyawan.update');
+            Route::delete('/karyawan/{karyawan}', [KaryawanController::class, 'destroy'])->name('karyawan.destroy');
         });
 
         // Group Prefix Master Data
