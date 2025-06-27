@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LokasiPresensiController;
+use App\Http\Controllers\PresensiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +61,14 @@ Route::middleware(['auth'])->group(function () {
         // Group Prefix Dashboard
         Route::prefix('dashboard-karyawan')->group(function () {
             Route::get('/dashboard', [DashboardController::class, 'karyawan'])->name('karyawan.dashboard');
+        });
+
+        // Group Prefix Presensi
+        Route::prefix('presensi')->group(function () {
+            Route::get('/presensi/masuk', [PresensiController::class, 'presensiMasukCam'])->name('presensi.masuk');
+            Route::post('/presensi/masuk', [PresensiController::class, 'presensiMasuk'])->name('presensi.store');
+            Route::get('/presensi/keluar', [PresensiController::class, 'presensiKeluarCam'])->name('presensi.keluar');
+            Route::post('/presensi/keluar', [PresensiController::class, 'presensiKeluar'])->name('presensi.keluar.store');
         });
 
         // Group Prefix Rekap Presensi

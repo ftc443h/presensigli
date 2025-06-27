@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('admin/assets/img/logo/logo.png') }}" />
 
     <!-- BEGIN PAGE LEVEL STYLES -->
-    <link href="{{ asset(('admin/assets/libs/jsvectormap/dist/jsvectormap.css?1744816593')) }}" rel="stylesheet" />
+    <link href="{{ asset('admin/assets/libs/jsvectormap/dist/jsvectormap.css?1744816593') }}" rel="stylesheet" />
     <!-- END PAGE LEVEL STYLES -->
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="{{ asset('admin/assets/css/tabler.css?1744816593') }}" rel="stylesheet" />
@@ -32,6 +32,22 @@
         @import url("https://rsms.me/inter/inter.css");
     </style>
     <!-- END CUSTOM FONT -->
+
+    <!-- OTHER PACKAGE CSS Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- OTHER PACKAGE -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"
+        integrity="sha512-dQIiHSl2hr3NWKKLycPndtpbh5iaHLo6MwrXm7F0FM5e+kL2U16oE9uIwPHUl6fQBeCthiEuV/rzP3MiAB8Vfw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body>
@@ -43,14 +59,14 @@
         <header class="navbar navbar-expand-md d-print-none" id="nav-sidebar">
 
             <!-- Sidebar Start -->
-             @include('admin.layouts.sidebar.index')
+            @include('karyawan.layouts.sidebar.index')
             <!-- Sidebar End -->
 
         </header>
         <header class="navbar-expand-md">
 
             <!-- Navbar Start -->
-             @include('admin.layouts.navbar.index')
+            @include('karyawan.layouts.navbar.index')
             <!-- Navbar End -->
 
         </header>
@@ -58,13 +74,13 @@
         <div class="page-wrapper">
 
             <!-- Dashboard Start -->
-             @yield('content')
+            @yield('content')
             <!-- Dashboard End -->
-            
+
             <!-- Footer Start -->
-             @include('admin.layouts.footer.index')
+            @include('karyawan.layouts.footer.index')
             <!-- Footer End -->
-            
+
         </div>
     </div>
     <!-- BEGIN PAGE MODALS -->
@@ -78,34 +94,39 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-control" name="example-text-input" placeholder="Your report name" />
+                        <input type="text" class="form-control" name="example-text-input"
+                            placeholder="Your report name" />
                     </div>
                     <label class="form-label">Report type</label>
                     <div class="form-selectgroup-boxes row mb-3">
                         <div class="col-lg-6">
                             <label class="form-selectgroup-item">
-                                <input type="radio" name="report-type" value="1" class="form-selectgroup-input" checked />
+                                <input type="radio" name="report-type" value="1" class="form-selectgroup-input"
+                                    checked />
                                 <span class="form-selectgroup-label d-flex align-items-center p-3">
                                     <span class="me-3">
                                         <span class="form-selectgroup-check"></span>
                                     </span>
                                     <span class="form-selectgroup-label-content">
                                         <span class="form-selectgroup-title strong mb-1">Simple</span>
-                                        <span class="d-block text-secondary">Provide only basic data needed for the report</span>
+                                        <span class="d-block text-secondary">Provide only basic data needed for the
+                                            report</span>
                                     </span>
                                 </span>
                             </label>
                         </div>
                         <div class="col-lg-6">
                             <label class="form-selectgroup-item">
-                                <input type="radio" name="report-type" value="1" class="form-selectgroup-input" />
+                                <input type="radio" name="report-type" value="1"
+                                    class="form-selectgroup-input" />
                                 <span class="form-selectgroup-label d-flex align-items-center p-3">
                                     <span class="me-3">
                                         <span class="form-selectgroup-check"></span>
                                     </span>
                                     <span class="form-selectgroup-label-content">
                                         <span class="form-selectgroup-title strong mb-1">Advanced</span>
-                                        <span class="d-block text-secondary">Insert charts and additional advanced analyses to be inserted in the report</span>
+                                        <span class="d-block text-secondary">Insert charts and additional advanced
+                                            analyses to be inserted in the report</span>
                                     </span>
                                 </span>
                             </label>
@@ -117,7 +138,8 @@
                                 <label class="form-label">Report url</label>
                                 <div class="input-group input-group-flat">
                                     <span class="input-group-text"> https://tabler.io/reports/ </span>
-                                    <input type="text" class="form-control ps-0" value="report-01" autocomplete="off" />
+                                    <input type="text" class="form-control ps-0" value="report-01"
+                                        autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -159,17 +181,9 @@
                     <a href="#" class="btn btn-link link-secondary btn-3" data-bs-dismiss="modal"> Cancel </a>
                     <a href="#" class="btn btn-primary btn-5 ms-auto" data-bs-dismiss="modal">
                         <!-- Download SVG icon from http://tabler.io/icons/icon/plus -->
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="icon icon-2">
                             <path d="M12 5l0 14" />
                             <path d="M5 12l14 0" />
                         </svg>
@@ -185,7 +199,7 @@
     <script src="{{ asset('admin/assets/libs/apexcharts/dist/apexcharts.min.js?1744816593') }}" defer></script>
     <script src="{{ asset('admin/assets/libs/jsvectormap/dist/jsvectormap.min.js?1744816593') }}" defer></script>
     <script src="{{ asset('admin/assets/libs/jsvectormap/dist/maps/world.js?1744816593') }}" defer></script>
-    <script src="{{ asset('admin/assets/libs/jsvectormap/dist/maps/world-merc.js?1744816593')}}" defer></script>
+    <script src="{{ asset('admin/assets/libs/jsvectormap/dist/maps/world-merc.js?1744816593') }}" defer></script>
     <!-- END PAGE LIBRARIES -->
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="{{ asset('admin/assets/js/tabler.min.js?1744816593') }}" defer></script>
@@ -194,7 +208,7 @@
     <script src="{{ asset('admin/assets/preview/js/demo.min.js?1744816593') }}" defer></script>
     <!-- END DEMO SCRIPTS -->
     <!-- BEGIN PAGE SCRIPTS -->
-    <script>
+    {{-- <script>
         document.addEventListener("DOMContentLoaded", function() {
             window.ApexCharts &&
                 new ApexCharts(document.getElementById("chart-revenue-bg"), {
@@ -213,7 +227,9 @@
                         enabled: false,
                     },
                     fill: {
-                        colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 16%)", "color-mix(in srgb, transparent, var(--tblr-primary) 16%)"],
+                        colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 16%)",
+                            "color-mix(in srgb, transparent, var(--tblr-primary) 16%)"
+                        ],
                         type: "solid",
                     },
                     stroke: {
@@ -223,7 +239,9 @@
                     },
                     series: [{
                         name: "Profits",
-                        data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 39, 62, 51, 35, 41, 67],
+                        data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53,
+                            61, 27, 54, 43, 19, 46, 39, 62, 51, 35, 41, 67
+                        ],
                     }, ],
                     tooltip: {
                         theme: "dark",
@@ -310,11 +328,15 @@
                     },
                     series: [{
                             name: "May",
-                            data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 4, 46, 39, 62, 51, 35, 41, 67],
+                            data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53,
+                                61, 27, 54, 43, 4, 46, 39, 62, 51, 35, 41, 67
+                            ],
                         },
                         {
                             name: "April",
-                            data: [93, 54, 51, 24, 35, 35, 31, 67, 19, 43, 28, 36, 62, 61, 27, 39, 35, 41, 27, 35, 51, 46, 62, 37, 44, 53, 41, 65, 39, 37],
+                            data: [93, 54, 51, 24, 35, 35, 31, 67, 19, 43, 28, 36, 62, 61, 27, 39, 35, 41,
+                                27, 35, 51, 46, 62, 37, 44, 53, 41, 65, 39, 37
+                            ],
                         },
                     ],
                     tooltip: {
@@ -369,7 +391,9 @@
                         "2020-07-18",
                         "2020-07-19",
                     ],
-                    colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 100%)", "color-mix(in srgb, transparent, var(--tblr-gray-600) 100%)"],
+                    colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 100%)",
+                        "color-mix(in srgb, transparent, var(--tblr-gray-600) 100%)"
+                    ],
                     legend: {
                         show: false,
                     },
@@ -401,7 +425,9 @@
                     },
                     series: [{
                         name: "Profits",
-                        data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 39, 62, 51, 35, 41, 67],
+                        data: [37, 35, 44, 28, 36, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53,
+                            61, 27, 54, 43, 19, 46, 39, 62, 51, 35, 41, 67
+                        ],
                     }, ],
                     tooltip: {
                         theme: "dark",
@@ -492,15 +518,21 @@
                     },
                     series: [{
                             name: "Web",
-                            data: [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 12, 5, 8, 22, 6, 8, 6, 4, 1, 8, 24, 29, 51, 40, 47, 23, 26, 50, 26, 41, 22, 46, 47, 81, 46, 6],
+                            data: [1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 2, 12, 5, 8, 22, 6, 8, 6, 4, 1, 8, 24, 29,
+                                51, 40, 47, 23, 26, 50, 26, 41, 22, 46, 47, 81, 46, 6
+                            ],
                         },
                         {
                             name: "Social",
-                            data: [2, 5, 4, 3, 3, 1, 4, 7, 5, 1, 2, 5, 3, 2, 6, 7, 7, 1, 5, 5, 2, 12, 4, 6, 18, 3, 5, 2, 13, 15, 20, 47, 18, 15, 11, 10, 0],
+                            data: [2, 5, 4, 3, 3, 1, 4, 7, 5, 1, 2, 5, 3, 2, 6, 7, 7, 1, 5, 5, 2, 12, 4, 6,
+                                18, 3, 5, 2, 13, 15, 20, 47, 18, 15, 11, 10, 0
+                            ],
                         },
                         {
                             name: "Other",
-                            data: [2, 9, 1, 7, 8, 3, 6, 5, 5, 4, 6, 4, 1, 9, 3, 6, 7, 5, 2, 8, 4, 9, 1, 2, 6, 7, 5, 1, 8, 3, 2, 3, 4, 9, 7, 1, 6],
+                            data: [2, 9, 1, 7, 8, 3, 6, 5, 5, 4, 6, 4, 1, 9, 3, 6, 7, 5, 2, 8, 4, 9, 1, 2,
+                                6, 7, 5, 1, 8, 3, 2, 3, 4, 9, 7, 1, 6
+                            ],
                         },
                     ],
                     tooltip: {
@@ -866,7 +898,9 @@
                         enabled: false,
                     },
                     fill: {
-                        colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 16%)", "color-mix(in srgb, transparent, var(--tblr-primary) 16%)"],
+                        colors: ["color-mix(in srgb, transparent, var(--tblr-primary) 16%)",
+                            "color-mix(in srgb, transparent, var(--tblr-primary) 16%)"
+                        ],
                         type: "solid",
                     },
                     stroke: {
@@ -876,7 +910,9 @@
                     },
                     series: [{
                         name: "Purchases",
-                        data: [3, 5, 4, 6, 7, 5, 6, 8, 24, 7, 12, 5, 6, 3, 8, 4, 14, 30, 17, 19, 15, 14, 25, 32, 40, 55, 60, 48, 52, 70],
+                        data: [3, 5, 4, 6, 7, 5, 6, 8, 24, 7, 12, 5, 6, 3, 8, 4, 14, 30, 17, 19, 15, 14,
+                            25, 32, 40, 55, 60, 48, 52, 70
+                        ],
                     }, ],
                     tooltip: {
                         theme: "dark",
@@ -1167,8 +1203,90 @@
             });
             checkItems();
         });
-    </script>
+    </script> --}}
     <!-- END PAGE SCRIPTS -->
+
+    <!-- SWEET ALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- ALERT -->
+    <script>
+        // validation
+        @if ($errors->any())
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000,
+                timerProgressBar: true,
+            });
+
+            @foreach ($errors->all() as $error)
+                Toast.fire({
+                    icon: 'error',
+                    title: '{{ $error }}',
+                });
+            @endforeach
+        @endif
+
+        // Success message
+        @if (session('success'))
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000,
+                timerProgressBar: true,
+            });
+
+
+            Toast.fire({
+                icon: 'success',
+                title: '{{ session('success') }}',
+            });
+        @endif
+
+        // Error processing
+        @if (session('error'))
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000,
+                timerProgressBar: true,
+            });
+
+
+            Toast.fire({
+                icon: 'error',
+                title: '{{ session('error') }}',
+            });
+        @endif
+
+        // confirmation delete
+        document.querySelectorAll('.btn-delete').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); // Jangan langsung submit form
+
+                const form = this.closest('form');
+
+                Swal.fire({
+                    title: "Yakin hapus?",
+                    text: "Data yang sudah dihapus tidak bisa dikembalikan!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Ya, hapus!",
+                    cancelButtonText: "Batal"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

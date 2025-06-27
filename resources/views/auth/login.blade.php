@@ -234,7 +234,7 @@
     <script src="{{ asset('admin/assets/preview/js/demo.min.js?1744816591') }}" defer></script>
     <!-- END DEMO SCRIPTS -->
     <!-- BEGIN PAGE SCRIPTS -->
-    <script>
+    {{-- <script>
         document.addEventListener("DOMContentLoaded", function() {
             var themeConfig = {
                 theme: "light",
@@ -284,7 +284,7 @@
             });
             checkItems();
         });
-    </script>
+    </script> --}}
     <!-- END PAGE SCRIPTS -->
 
     <!-- SWEET ALERT -->

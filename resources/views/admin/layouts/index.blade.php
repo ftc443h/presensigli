@@ -207,7 +207,7 @@
 
     @yield('scripts')
 
-    <script>
+    {{-- <script>
         document.addEventListener("DOMContentLoaded", function() {
             window.ApexCharts &&
                 new ApexCharts(document.getElementById("chart-revenue-bg"), {
@@ -1202,7 +1202,7 @@
             });
             checkItems();
         });
-    </script>
+    </script> --}}
     <!-- END PAGE SCRIPTS -->
 
     <!-- SWEET ALERT -->

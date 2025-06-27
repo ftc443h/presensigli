@@ -5,7 +5,7 @@
                 <div class="col">
                     <!-- BEGIN NAVBAR MENU -->
                     <ul class="navbar-nav">
-                        <li class="nav-item {{ (Request::is('dashboard/dashboard') ? 'active' : '') }}">
+                        <li class="nav-item {{ (Request::is('dashboard-karyawan/dashboard') ? 'active' : '') }}">
                             <a class="nav-link" href="{{ route('karyawan.dashboard') }}">
                                 <span
                                     class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler.io/icons/icon/home -->
