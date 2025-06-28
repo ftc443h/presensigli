@@ -52,7 +52,17 @@ Route::middleware(['auth'])->group(function () {
 
         // Group Prefix Rekap Karyawan
         Route::prefix('rekap-karyawan')->group(function () {
-            Route::get('/rekap-bulanan', [RekapPresensiController::class, 'rekapPresensi'])->name('rekap-karyawan.index');
+            // Rekap Harian
+            Route::get('/rekap-harian', [RekapPresensiController::class, 'rekapHarian'])->name('rekap-harian.index');
+            Route::get('/rekap-harian/data', [RekapPresensiController::class, 'rekapHarianData'])->name('rekap-harian.data');
+            Route::get('/rekap-harian/export-excel', [RekapPresensiController::class, 'exportRHExcel'])->name('rekap-harian.export.excel');
+            Route::get('/rekap-harian/export-pdf', [RekapPresensiController::class, 'exportRHPdf'])->name('rekap-harian.export.pdf');
+
+            // Rekap Bulanan
+            Route::get('/rekap-bulanan', [RekapPresensiController::class, 'rekapBulanan'])->name('rekap-bulanan.index');
+            Route::get('/rekap-bulanan/data', [RekapPresensiController::class, 'rekapBulananData'])->name('rekap-bulanan.data');
+            Route::get('/rekap-bulanan/export-excel', [RekapPresensiController::class, 'exportRBExcel'])->name('rekap-bulanan.export.excel');
+            Route::get('/rekap-bulanan/export-pdf', [RekapPresensiController::class, 'exportRBPdf'])->name('rekap-bulanan.export.pdf');
         });
     });
 

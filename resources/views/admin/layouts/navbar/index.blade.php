@@ -87,8 +87,10 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item {{ Request::is('karyawan/karyawan') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('rekap-karyawan.index') }}">
+                        <li
+                            class="nav-item {{ (Request::is('rekap-karyawan/rekap-harian') ? 'active' : '' || Request::is('rekap-karyawan/rekap-bulanan')) ? 'active' : '' }} dropdown">
+                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
+                                data-bs-auto-close="outside" role="button" aria-expanded="false">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -104,6 +106,18 @@
                                 </span>
                                 <span class="nav-link-title"> Rekap Karyawan </span>
                             </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        <a class="dropdown-item" href="{{ route('rekap-harian.index') }}">
+                                            Rekap Harian
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('rekap-bulanan.index') }}">
+                                            Rekap Bulanan
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./">
