@@ -22,7 +22,10 @@
                             Presensi Masuk
                         </div>
                         <div class="card-body py-4">
-                            @if ($cekPresensi && $cekPresensi->tanggal_masuk === date('Y-m-d') && $cekPresensi->jam_masuk)
+                            @if (
+                                $cekPresensi &&
+                                    $cekPresensi->tanggal_masuk === \Carbon\Carbon::now('Asia/Jakarta')->toDateString() &&
+                                    $cekPresensi->jam_masuk)
                                 <i class="fa-regular fa-circle-check fa-4x text-success my-3"></i>
                                 <p class="fs-4 text-success mb-1">
                                     Anda sudah melakukan presensi masuk
@@ -67,7 +70,10 @@
                                     {{ $lokasi->zona_waktu }}
                                 </small>
                             @else
-                                @if ($cekPresensi && $cekPresensi->tanggal_masuk === date('Y-m-d') && $cekPresensi->jam_keluar)
+                                @if (
+                                    $cekPresensi &&
+                                        $cekPresensi->tanggal_masuk === \Carbon\Carbon::now('Asia/Jakarta')->toDateString() &&
+                                        $cekPresensi->jam_keluar)
                                     <i class="fa-regular fa-circle-check fa-4x text-success my-3"></i>
                                     <p class="fs-4 text-success mb-1">
                                         Anda sudah melakukan presensi keluar

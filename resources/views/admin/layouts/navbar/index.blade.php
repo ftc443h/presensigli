@@ -87,8 +87,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./">
+                        <li class="nav-item {{ Request::is('karyawan/karyawan') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('rekap-karyawan.index') }}">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -104,18 +104,6 @@
                                 </span>
                                 <span class="nav-link-title"> Rekap Karyawan </span>
                             </a>
-                            <div class="dropdown-menu">
-                                <div class="dropdown-menu-columns">
-                                    <div class="dropdown-menu-column">
-                                        <a class="dropdown-item" href="./layout-boxed.html">
-                                            Rekap Harian
-                                        </a>
-                                        <a class="dropdown-item" href="./layout-combo.html">
-                                            Rekap Bulanan
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./">

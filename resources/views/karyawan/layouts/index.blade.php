@@ -48,6 +48,11 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- DATATABLES -->
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css" rel="stylesheet" />
+    <!-- END DATATABLES -->
 </head>
 
 <body>
@@ -207,6 +212,12 @@
     <!-- BEGIN DEMO SCRIPTS -->
     <script src="{{ asset('admin/assets/preview/js/demo.min.js?1744816593') }}" defer></script>
     <!-- END DEMO SCRIPTS -->
+    
+    <!-- DATATABLES SCRIPTS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <!-- END DATATABLES SCRIPTS -->
+    
     <!-- BEGIN PAGE SCRIPTS -->
     {{-- <script>
         document.addEventListener("DOMContentLoaded", function() {

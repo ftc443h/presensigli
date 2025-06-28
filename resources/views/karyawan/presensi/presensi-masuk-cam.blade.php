@@ -142,13 +142,18 @@
             navigator.geolocation.getCurrentPosition(function(position) {
                 const lat = position.coords.latitude;
                 const long = position.coords.longitude;
-                let now = new Date();
-                // Tanggal format Y-m-d
-                let tanggal = now.toISOString().split('T')[0];
-                // Jam format H:i:s
-                let jam = now.toTimeString().split(' ')[0];
 
                 Webcam.snap(function(data_uri) {
+                    let now = new Date();
+                    
+                    // Ambil tanggal & jam lokal (bukan UTC!)
+                    let tanggal = now.getFullYear() + '-' +
+                        String(now.getMonth() + 1).padStart(2, '0') + '-' +
+                        String(now.getDate()).padStart(2, '0');
+
+                    let jam = String(now.getHours()).padStart(2, '0') + ':' +
+                        String(now.getMinutes()).padStart(2, '0') + ':' +
+                        String(now.getSeconds()).padStart(2, '0');
 
                     console.log({
                         photo: data_uri,

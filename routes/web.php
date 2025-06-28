@@ -5,6 +5,7 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LokasiPresensiController;
 use App\Http\Controllers\PresensiController;
+use App\Http\Controllers\RekapPresensiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -50,9 +51,9 @@ Route::middleware(['auth'])->group(function () {
         });
 
         // Group Prefix Rekap Karyawan
-        // Route::prefix('rekap-karyawan')->group(function () {
-        //     //
-        // });
+        Route::prefix('rekap-karyawan')->group(function () {
+            Route::get('/rekap-bulanan', [RekapPresensiController::class, 'rekapPresensi'])->name('rekap-karyawan.index');
+        });
     });
 
 
@@ -72,8 +73,18 @@ Route::middleware(['auth'])->group(function () {
         });
 
         // Group Prefix Rekap Presensi
-        // Route::prefix('rekap-presensi')->group(function () {
-        //     //
-        // });
+        Route::prefix('rekap-presensi')->group(function () {
+            // Rekap Harian
+            Route::get('/rekap-harian', [RekapPresensiController::class, 'rekapHarianKaryawan'])->name('rekap-harian.karyawan.index');
+            Route::get('/rekap-harian/data', [RekapPresensiController::class, 'rekapHarianKaryawanData'])->name('rekap-harian.karyawan.data');
+            Route::get('/rekap-harian/export-excel', [RekapPresensiController::class, 'exportRHKExcel'])->name('rekap-harian.karyawan.export.excel');
+            Route::get('/rekap-harian/export-pdf', [RekapPresensiController::class, 'exportRHKPdf'])->name('rekap-harian.karyawan.export.pdf');
+
+            // Rekap Bulanan
+            Route::get('/rekap-bulanan', [RekapPresensiController::class, 'rekapBulananKaryawan'])->name('rekap-bulanan.karyawan.index');
+            Route::get('/rekap-bulanan/data', [RekapPresensiController::class, 'rekapBulananKaryawanData'])->name('rekap-bulanan.karyawan.data');
+            Route::get('/rekap-bulanan/export-excel', [RekapPresensiController::class, 'exportRBKExcel'])->name('rekap-bulanan.karyawan.export.excel');
+            Route::get('/rekap-bulanan/export-pdf', [RekapPresensiController::class, 'exportRBKPdf'])->name('rekap-bulanan.karyawan.export.pdf');
+        });
     });
 });

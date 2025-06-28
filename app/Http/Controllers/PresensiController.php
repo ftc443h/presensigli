@@ -42,16 +42,8 @@ class PresensiController extends Controller
                 $karyawan->lokasi_presensi
             )->firstOrFail();
 
-            $tanggal = $request->tanggal ?? now()->format('Y-m-d');
-            // Jika tanggal tidak diberikan, gunakan tanggal hari ini
-            if (!$request->has('tanggal')) {
-                $tanggal = now()->format('Y-m-d');
-            }
-            $jam = $request->jam ?? now()->format('H:i:s');
-            // Jika jam tidak diberikan, gunakan jam saat ini
-            if (!$request->has('jam')) {
-                $jam = now()->format('H:i:s');
-            }
+            $tanggal = $request->tanggal;
+            $jam = $request->jam;
             // Ambil NIP karyawan
             $nip = $karyawan->nip;
 
@@ -167,16 +159,8 @@ class PresensiController extends Controller
                 $karyawan->lokasi_presensi
             )->firstOrFail();
 
-            $tanggal = $request->tanggal ?? now()->format('Y-m-d');
-            // Jika tanggal tidak diberikan, gunakan tanggal hari ini
-            if (!$request->has('tanggal')) {
-                $tanggal = now()->format('Y-m-d');
-            }
-            $jam = $request->jam ?? now()->format('H:i:s');
-            // Jika jam tidak diberikan, gunakan jam saat ini
-            if (!$request->has('jam')) {
-                $jam = now()->format('H:i:s');
-            }
+            $tanggal = $request->tanggal;
+            $jam = $request->jam;
             // Ambil NIP karyawan
             $nip = $karyawan->nip;
 
