@@ -18,7 +18,8 @@
                                 <span class="nav-link-title"> Home </span>
                             </a>
                         </li>
-                        <li class="nav-item {{ (Request::is('rekap-presensi/rekap-harian') ? 'active' : '' || Request::is('rekap-presensi/rekap-bulanan')) ? 'active' : '' }} dropdown">
+                        <li
+                            class="nav-item {{ (Request::is('rekap-presensi/rekap-harian') ? 'active' : '' || Request::is('rekap-presensi/rekap-bulanan')) ? 'active' : '' }} dropdown">
                             <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" role="button" aria-expanded="false">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -49,8 +50,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./">
+                        <li class="nav-item {{ Request::is('ketidakhadiran/ketidakhadiran') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('ketidakhadiran.index') }}">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -60,7 +61,8 @@
                                         <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" />
                                         <path d="M12 8v4" />
                                         <path d="M12 16h.01" />
-                                    </svg></span>
+                                    </svg>
+                                </span>
                                 <span class="nav-link-title"> Ketidakhadiran </span>
                             </a>
                         </li>
