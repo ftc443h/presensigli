@@ -166,7 +166,9 @@
         <div class="nav-item dropdown">
             <a href="#" class="nav-link d-flex lh-1 p-0 px-2" data-bs-toggle="dropdown"
                 aria-label="Open user menu">
-                <span class="avatar avatar-sm" style="background-image: url('{{ !empty(Auth::user()->karyawan->foto) ? asset('storage/' . Auth::user()->karyawan->foto) : asset('admin/assets/img/avatars/000m.jpg') }}')"> </span>
+                <span class="avatar avatar-sm"
+                    style="background-image: url('{{ !empty(Auth::user()->karyawan->foto) ? asset('storage/' . Auth::user()->karyawan->foto) : asset('admin/assets/img/avatars/000m.jpg') }}')">
+                </span>
                 <div class="d-none d-xl-block ps-2">
                     <div id="nav-H1">{{ Auth::user()->karyawan->name }}</div>
                     <div id="nav-H1" class="mt-1 small">
@@ -175,7 +177,7 @@
                 </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <a href="#" class="dropdown-item">Profile</a>
+                <a href="{{ route('profile.karyawan.show') }}" class="dropdown-item">Profile</a>
                 <a href="" class="dropdown-item">Ubah Password</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

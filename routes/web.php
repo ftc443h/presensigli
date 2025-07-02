@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JabatanController;
@@ -26,6 +27,10 @@ Route::middleware(['auth'])->group(function () {
                 '/dashboard',
                 [DashboardController::class, 'dashboard']
             )->name('dashboard.index');
+            Route::get(
+                '/profile',
+                [ProfileController::class, 'showAdmin']
+            )->name('profile.admin.show');
         });
 
         // Group Prefix Karyawan
@@ -184,6 +189,10 @@ Route::middleware(['auth'])->group(function () {
                 '/dashboard',
                 [DashboardController::class, 'karyawan']
             )->name('karyawan.dashboard');
+            Route::get(
+                '/profile',
+                [ProfileController::class, 'showKaryawan']
+            )->name('profile.karyawan.show');
         });
 
         // Group Prefix Presensi
