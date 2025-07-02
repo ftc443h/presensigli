@@ -18,6 +18,32 @@
                                 <span class="nav-link-title"> Home </span>
                             </a>
                         </li>
+                        <li
+                            class="nav-item {{ Request::is([
+                                'presensi/presensi-admin',
+                                'presensi/presensi-admin/masuk-cam',
+                                'presensi/presensi-admin/keluar-cam',
+                            ])
+                                ? 'active'
+                                : '' }}">
+                            <a class="nav-link" href="{{ route('presensi-admin.index') }}">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-event">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path
+                                            d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                                        <path d="M16 3l0 4" />
+                                        <path d="M8 3l0 4" />
+                                        <path d="M4 11l16 0" />
+                                        <path d="M8 15h2v2h-2z" />
+                                    </svg>
+                                </span>
+                                <span class="nav-link-title"> Presensi </span>
+                            </a>
+                        </li>
                         <li class="nav-item {{ Request::is('karyawan/karyawan') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('karyawan.index') }}">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">

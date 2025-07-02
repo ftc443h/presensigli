@@ -38,12 +38,37 @@ Route::middleware(['auth'])->group(function () {
             Route::put(
                 '/profile/update-password',
                 [ProfileController::class, 'updatePasswordAdmin']
-            )->name('profile.admin.update-password');   
+            )->name('profile.admin.update-password');
             Route::patch(
                 '/profile/update-password',
                 [ProfileController::class, 'updatePasswordAdmin']
-            )->name('profile.admin.update-password');   
+            )->name('profile.admin.update-password');
         });
+
+        // Group Prefix Presensi
+        Route::prefix('presensi')->group(function () {
+            Route::get(
+                '/presensi-admin',
+                [PresensiController::class, 'presensiAdmin']
+            )->name('presensi-admin.index');
+            Route::get(
+                '/presensi-admin/masuk-cam',
+                [PresensiController::class, 'presensiMasukCamAdmin']
+            )->name('presensi-admin.masuk');
+            Route::post(
+                '/presensi-admin/masuk',
+                [PresensiController::class, 'presensiMasukAdmin']
+            )->name('presensi-admin.store');
+            Route::get(
+                '/presensi-admin/keluar-cam',
+                [PresensiController::class, 'presensiKeluarCamAdmin']
+            )->name('presensi-admin.keluar');
+            Route::post(
+                '/presensi-admin/keluar',
+                [PresensiController::class, 'presensiKeluarAdmin']
+            )->name('presensi-admin.keluar.store');
+        });
+
 
         // Group Prefix Karyawan
         Route::prefix('karyawan')->group(function () {
