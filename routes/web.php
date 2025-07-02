@@ -31,6 +31,18 @@ Route::middleware(['auth'])->group(function () {
                 '/profile',
                 [ProfileController::class, 'showAdmin']
             )->name('profile.admin.show');
+            Route::get(
+                '/profile/edit-password',
+                [ProfileController::class, 'editPasswordAdmin']
+            )->name('profile.admin.edit-password');
+            Route::put(
+                '/profile/update-password',
+                [ProfileController::class, 'updatePasswordAdmin']
+            )->name('profile.admin.update-password');   
+            Route::patch(
+                '/profile/update-password',
+                [ProfileController::class, 'updatePasswordAdmin']
+            )->name('profile.admin.update-password');   
         });
 
         // Group Prefix Karyawan
@@ -193,6 +205,18 @@ Route::middleware(['auth'])->group(function () {
                 '/profile',
                 [ProfileController::class, 'showKaryawan']
             )->name('profile.karyawan.show');
+            Route::get(
+                '/profile/edit-password',
+                [ProfileController::class, 'editPasswordKaryawan']
+            )->name('profile.karyawan.edit-password');
+            Route::put(
+                '/profile/update-password',
+                [ProfileController::class, 'updatePasswordKaryawan']
+            )->name('profile.karyawan.update-password');
+            Route::patch(
+                '/profile/update-password',
+                [ProfileController::class, 'updatePasswordKaryawan']
+            )->name('profile.karyawan.update-password');
         });
 
         // Group Prefix Presensi

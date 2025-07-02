@@ -677,7 +677,9 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <a href="{{ route('profile.admin.show') }}" class="dropdown-item">Profile</a>
-                <a href="" class="dropdown-item">Ubah Password</a>
+                <a href="{{ route('profile.admin.edit-password') }}" class="dropdown-item">
+                    Ubah Password
+                </a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
