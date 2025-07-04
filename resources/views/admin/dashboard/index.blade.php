@@ -1,132 +1,119 @@
 @extends('admin.layouts.index')
+
 @section('content')
     <!-- BEGIN PAGE HEADER -->
     <div class="page-header d-print-none">
         <div class="container-xl">
             <div class="row g-2 align-items-center">
                 <div class="col">
-                    <!-- Page pre-title -->
-                    {{-- <div class="page-pretitle">Overview</div> --}}
                     <h2 class="page-title">Dashboard</h2>
                 </div>
-                <!-- Page title actions -->
             </div>
         </div>
     </div>
     <!-- END PAGE HEADER -->
+
     <!-- BEGIN PAGE BODY -->
     <div class="page-body">
         <div class="container-xl">
             <div class="row row-deck row-cards">
-                <div class="col-12">
-                    <div class="row row-cards">
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="card card-sm">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <span
-                                                class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/currency-dollar -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-user">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                        <div class="col">
-                                            <div class="font-weight-medium">Total Karyawan Aktif</div>
-                                            <div class="text-secondary">{{ $user }} Karyawan</div>
-                                        </div>
+                <!-- Cards Summary -->
+                @php
+                    $summary = [
+                        ['title' => 'Total Karyawan Aktif', 'value' => $user, 'color' => 'primary', 'icon' => 'user'],
+                        ['title' => 'Total Hadir', 'value' => $hadir, 'color' => 'green', 'icon' => 'user-check'],
+                        ['title' => 'Total Alpa', 'value' => $alpa, 'color' => 'x', 'icon' => 'user-x'],
+                        ['title' => 'Total Sakit, Izin, & Cuti', 'value' => $sakit + $izin + $cuti, 'color' => 'facebook', 'icon' => 'user-minus']
+                    ];
+                @endphp
+
+                @foreach ($summary as $item)
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-sm">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <span class="bg-{{ $item['color'] }} text-white avatar">
+                                            <x-tabler-icon :name="$item['icon']" />
+                                        </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="font-weight-medium">{{ $item['title'] }}</div>
+                                        <div class="text-secondary">{{ $item['value'] }} Karyawan</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="card card-sm">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <span
-                                                class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/shopping-cart -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-user-check">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
-                                                    <path d="M15 19l2 2l4 -4" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                        <div class="col">
-                                            <div class="font-weight-medium">Total Hadir</div>
-                                            <div class="text-secondary">0 Karyawan</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
+                @endforeach
+
+                <!-- Chart -->
+                <div class="col-md-6 mt-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Grafik Kehadiran Karyawan</h3>
                         </div>
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="card card-sm">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <span
-                                                class="bg-x text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-x -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-user-x">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5" />
-                                                    <path d="M22 22l-5 -5" />
-                                                    <path d="M17 22l5 -5" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                        <div class="col">
-                                            <div class="font-weight-medium">Total Alpa</div>
-                                            <div class="text-secondary">0 Karyawan</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="card card-sm">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <span
-                                                class="bg-facebook text-white avatar"><!-- Download SVG icon from http://tabler.io/icons/icon/brand-facebook -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-user-minus">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4c.348 0 .686 .045 1.009 .128" />
-                                                    <path d="M16 19h6" />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                        <div class="col">
-                                            <div class="font-weight-medium">Total Sakit, Izin, & Cuti</div>
-                                            <div class="text-secondary">0 Karyawan</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="card-body">
+                            <canvas id="attendanceChart" class="position-relative w-100" style="height: 200px;"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Chart Script -->
+    <script>
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Hadir', 'Sakit', 'Izin', 'Cuti', 'Alpa'],
+                datasets: [{
+                    label: 'Jumlah Karyawan',
+                    data: [{{ $hadir }}, {{ $sakit }}, {{ $izin }}, {{ $cuti }}, {{ $alpa }}],
+                    backgroundColor: [
+                        '#28a74566', // Hadir
+                        '#dc354566', // Sakit
+                        '#ffc10766', // Izin
+                        '#17a2b866', // Cuti
+                        '#6f42c166'  // Alpa
+                    ],
+                    borderColor: [
+                        '#28a745',
+                        '#dc3545',
+                        '#ffc107',
+                        '#17a2b8',
+                        '#6f42c1'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Karyawan'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Kehadiran Karyawan Bulan Ini'
+                    }
+                }
+            }
+        });
+    </script>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ketidakhadiran;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Presensi;
@@ -13,8 +14,59 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $user = User::where('status', 'active')->count();
-        return view('admin.dashboard.index', compact('user'));
+        Carbon::setLocale('id');
+
+        // Ambil semua karyawan yang statusnya aktif dan memiliki karyawan_id
+        $idEmployees = User::where('status', 'active')
+            ->whereNotNull('karyawan_id')
+            ->pluck('karyawan_id');
+
+        // Ambil tanggal hari ini
+        $today = Carbon::today()->toDateString();
+
+        // Hitung jumlah karyawan yang active
+        $user = $idEmployees->count();
+
+        // Hadir -> Hitung jumlah karyawan yang hadir hari ini
+        $hadir = Presensi::whereIn('karyawan_id', $idEmployees)
+            ->whereDate('tanggal_masuk', $today)
+            ->distinct('karyawan_id')
+            ->count('karyawan_id');
+
+        // Sakit, Izin, Cuti -> Hitung jumlah karyawan yang sakit, izin, atau cuti hari ini
+        $sakit = Ketidakhadiran::whereIn('karyawan_id', $idEmployees)
+            ->where('keterangan', 'Sakit')
+            ->whereDate('tanggal', $today)
+            ->count();
+
+        $izin = Ketidakhadiran::whereIn('karyawan_id', $idEmployees)
+            ->where('keterangan', 'Izin')
+            ->whereDate('tanggal', $today)
+            ->count();
+
+        $cuti = Ketidakhadiran::whereIn('karyawan_id', $idEmployees)
+            ->where('keterangan', 'Cuti')
+            ->whereDate('tanggal', $today)
+            ->count();
+
+        $total_tidak_hadir_resmi = $sakit + $izin + $cuti;
+
+        // Alpa -> Hitung jumlah karyawan yang tidak hadir resmi hari ini
+        $alpa = $user - ($hadir + $total_tidak_hadir_resmi);
+
+
+
+        return view(
+            'admin.dashboard.index',
+            compact(
+                'user',
+                'hadir',
+                'sakit',
+                'izin',
+                'cuti',
+                'alpa'
+            )
+        );
     }
 
     public function karyawan()
