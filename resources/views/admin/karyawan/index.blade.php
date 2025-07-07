@@ -93,23 +93,23 @@
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
                                                         <input type="file" name="foto" class="form-control"
-                                                            id="floatingInput">
-                                                        <label for="floatingInput">Photo</label>
+                                                            id="photoInput">
+                                                        <label for="photoInput">Photo</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
                                                         <input type="text" name="nip" class="form-control"
-                                                            id="floatingInput" placeholder="Please Input NIP Employee"
+                                                            id="nipInput" placeholder="Please Input NIP Employee"
                                                             value="{{ $nip_baru }}" readonly>
-                                                        <label for="floatingInput">NIP Employee</label>
+                                                        <label for="nipInput">NIP Employee</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
                                                         <input type="text" name="name" class="form-control"
-                                                            id="floatingInput" placeholder="Please Input Name Employee">
-                                                        <label for="floatingInput">Name Employee</label>
+                                                            id="nameInput" placeholder="Please Input Name Employee">
+                                                        <label for="nameInput">Name Employee</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -133,15 +133,15 @@
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
                                                         <input type="text" name="no_hp" class="form-control"
-                                                            id="floatingInput"
+                                                            id="hpInput"
                                                             placeholder="Please Input No Handphone Employee">
-                                                        <label for="floatingInput">No Handphone Employee</label>
+                                                        <label for="hpInput">No Handphone Employee</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
-                                                        <textarea class="form-control" name="alamat" placeholder="Please Input Address Employee" id="floatingTextarea"></textarea>
-                                                        <label for="floatingTextarea">Address Employee</label>
+                                                        <textarea class="form-control" name="alamat" placeholder="Please Input Address Employee" id="addressTextarea"></textarea>
+                                                        <label for="addressTextarea">Address Employee</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -160,32 +160,32 @@
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
                                                         <input type="text" name="username" class="form-control"
-                                                            id="floatingInput"
+                                                            id="usernameInput"
                                                             placeholder="Please Input Employee Username">
-                                                        <label for="floatingInput">Username Employee</label>
+                                                        <label for="usernameInput">Username Employee</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
                                                         <input type="email" name="email" class="form-control"
-                                                            id="floatingInput" placeholder="Please Input Employee Email">
-                                                        <label for="floatingInput">Email Employee</label>
+                                                            id="emailInput" placeholder="Please Input Employee Email">
+                                                        <label for="emailInput">Email Employee</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
                                                         <input type="password" name="password" class="form-control"
-                                                            id="floatingInput"
+                                                            id="passwordInput"
                                                             placeholder="Please Input Employee Password">
-                                                        <label for="floatingInput">Password Employee</label>
+                                                        <label for="passwordInput">Password Employee</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-floating mb-3">
                                                         <input type="password" name="password_confirmation"
-                                                            class="form-control" id="floatingInput"
+                                                            class="form-control" id="newPasswordInput"
                                                             placeholder="Please Input Employee Password Confirmation">
-                                                        <label for="floatingInput">Password Confirmation Employee</label>
+                                                        <label for="newPasswordInput">Password Confirmation Employee</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -222,7 +222,7 @@
                 <div class="col-6">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary float-end" id="filter-employee" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
+                        data-bs-target="#filterEmployee">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -234,7 +234,7 @@
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    <div class="modal fade" id="filterEmployee" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -246,16 +246,16 @@
                                 <div class="modal-body">
                                     <form id="karyawan-form">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingInput"
+                                            <input type="text" class="form-control" id="employee-name"
                                                 placeholder="Masukan Nama Karyawan">
-                                            <label for="floatingInput">Name</label>
+                                            <label for="employee-name">Name</label>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Filter Employee</button>
+                                    <button type="button" class="btn btn-primary" form="karyawan-form">Filter Employee</button>
                                 </div>
                             </div>
                         </div>
@@ -263,294 +263,137 @@
                 </div>
             </div>
             <div class="card mt-3">
-                <div class="card-body p-0">
+                <div class="card-body">
                     <div id="table-default" class="table-responsive">
-                        <table id="karyawan" class="table table-karyawan">
+                        <table id="karyawan" class="table table-vcenter card-table table-striped">
                             <thead>
                                 <tr>
-                                    <th><button class="table-sort" data-sort="sort-name">No</button></th>
-                                    <th><button class="table-sort" data-sort="sort-name">Photo</button></th>
-                                    <th><button class="table-sort" data-sort="sort-score">NIP</button></th>
-                                    <th><button class="table-sort" data-sort="sort-city">Name</button></th>
-                                    <th><button class="table-sort" data-sort="sort-date">Username</button></th>
-                                    <th><button class="table-sort" data-sort="sort-type">Position</button></th>
-                                    <th><button class="table-sort" data-sort="sort-date">Action</button></th>
+                                    <th>No</th>
+                                    <th>Photo</th>
+                                    <th>NIP</th>
+                                    <th>Name</th>
+                                    <th>Username</th>
+                                    <th>Position</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-tbody">
-                                @php
-                                    $no = 1;
-                                @endphp
-                                @forelse ($employees as $employee)
-                                    <tr>
-                                        <td class="sort-name">
-                                            {{ $no++ }}
-                                        </td>
-                                        <td class="sort-city">
-                                            <span class="avatar avatar-sm"
-                                                style="background-image: url('{{ !empty($employee->karyawan->foto) ? asset('storage/' . $employee->karyawan->foto) : asset('admin/assets/img/avatars/000m.jpg') }}')">
-                                            </span>
-                                        </td>
-                                        <td class="sort-date">
-                                            {{ $employee->karyawan->nip }}
-                                        </td>
-                                        <td class="sort-type">
-                                            {{ $employee->karyawan->name }}
-                                        </td>
-                                        <td class="sort-quantity">
-                                            {{ $employee->username }}
-                                        </td>
-                                        <td class="sort-score">
-                                            {{ $employee->karyawan->jabatan }}
-                                        </td>
-                                        <td class="sort-quantity">
-                                            <button type="button" class="btn btn-sm btn-primary btn-edit rounded-pill"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#editEmployee-{{ $employee->karyawan->id }}">
-                                                <span class="text">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                        <path
-                                                            d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
-                                                        <path
-                                                            d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
-                                                        <path d="M16 5l3 3" />
-                                                    </svg>
-                                                </span>
-                                                Edit
-                                            </button>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="editEmployee-{{ $employee->karyawan->id }}"
-                                                tabindex="-1"
-                                                aria-labelledby="editEmployeeLabel-{{ $employee->karyawan->id }}"
-                                                aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                                <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                        height="24" viewBox="0 0 24 24" fill="none"
-                                                                        stroke="currentColor" stroke-width="2"
-                                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                                        class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
-                                                                        <path stroke="none" d="M0 0h24v24H0z"
-                                                                            fill="none" />
-                                                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                                                        <path
-                                                                            d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                                                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                                                        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                                                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                                                                    </svg>
-                                                                </span>
-                                                                Update Employee
-                                                            </h1>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form method="POST"
-                                                                action="{{ route('karyawan.update', $employee->karyawan->id) }}">
-                                                                @csrf
-                                                                @method('PUT')
-
-                                                                <div class="row">
-                                                                    <div class="col-6">
-                                                                        <div class="col-12">
-                                                                            <div class="form-floating mb-3">
-                                                                                <input type="file" name="foto"
-                                                                                    class="form-control"
-                                                                                    id="floatingInput">
-                                                                                <label for="floatingInput">Photo</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <div class="form-floating mb-3">
-                                                                                <input type="text" name="nip"
-                                                                                    class="form-control"
-                                                                                    id="floatingInput"
-                                                                                    value="{{ $employee->karyawan->nip }}"
-                                                                                    readonly>
-                                                                                <label for="floatingInput">NIP
-                                                                                    Employee</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <div class="form-floating mb-3">
-                                                                                <input type="text" name="name"
-                                                                                    class="form-control"
-                                                                                    id="floatingInput"
-                                                                                    value="{{ $employee->karyawan->name }}">
-                                                                                <label for="floatingInput">Name
-                                                                                    Employee</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <select class="form-select mb-3"
-                                                                                name="jenis_kelamin">
-                                                                                <option value="laki-laki"
-                                                                                    {{ $employee->karyawan->jenis_kelamin == 'laki-laki' ? 'selected' : '' }}>
-                                                                                    Laki-laki</option>
-                                                                                <option value="perempuan"
-                                                                                    {{ $employee->karyawan->jenis_kelamin == 'perempuan' ? 'selected' : '' }}>
-                                                                                    Perempuan</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <select class="form-select mb-3"
-                                                                                name="jabatan">
-                                                                                @foreach ($positions as $position)
-                                                                                    <option
-                                                                                        value="{{ $position->jabatan }}"
-                                                                                        {{ $employee->karyawan->jabatan == $position->jabatan ? 'selected' : '' }}>
-                                                                                        {{ $position->jabatan }}
-                                                                                    </option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <div class="form-floating mb-3">
-                                                                                <input type="text" name="no_hp"
-                                                                                    class="form-control"
-                                                                                    id="floatingInput"
-                                                                                    value="{{ $employee->karyawan->no_hp }}">
-                                                                                <label for="floatingInput">No Handphone
-                                                                                    Employee</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <div class="form-floating mb-3">
-                                                                                <textarea class="form-control" name="alamat" id="floatingTextarea">{{ $employee->karyawan->alamat }}</textarea>
-                                                                                <label for="floatingTextarea">Address
-                                                                                    Employee</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <select class="form-select"
-                                                                                name="lokasi_presensi">
-                                                                                @foreach ($locations as $location)
-                                                                                    <option
-                                                                                        value="{{ $location->nama_lokasi }}"
-                                                                                        {{ $employee->karyawan->lokasi_presensi == $location->nama_lokasi ? 'selected' : '' }}>
-                                                                                        {{ $location->nama_lokasi }}
-                                                                                    </option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-6">
-                                                                        <div class="col-12">
-                                                                            <div class="form-floating mb-3">
-                                                                                <input type="text" name="username"
-                                                                                    class="form-control"
-                                                                                    id="floatingInput"
-                                                                                    value="{{ $employee->username }}">
-                                                                                <label for="floatingInput">Username
-                                                                                    Employee</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <div class="form-floating mb-3">
-                                                                                <input type="email" name="email"
-                                                                                    class="form-control"
-                                                                                    id="floatingInput"
-                                                                                    value="{{ $employee->email }}">
-                                                                                <label for="floatingInput">Email
-                                                                                    Employee</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <div class="form-floating mb-3">
-                                                                                <input type="password" name="password"
-                                                                                    class="form-control"
-                                                                                    id="floatingInput"
-                                                                                    placeholder="Leave blank if not changed">
-                                                                                <label for="floatingInput">New Password
-                                                                                    Employee</label>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <select class="form-select mb-3"
-                                                                                name="role">
-                                                                                <option value="admin"
-                                                                                    {{ $employee->role == 'admin' ? 'selected' : '' }}>
-                                                                                    Admin</option>
-                                                                                <option value="karyawan"
-                                                                                    {{ $employee->role == 'karyawan' ? 'selected' : '' }}>
-                                                                                    Karyawan</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <select class="form-select" name="status">
-                                                                                <option value="active"
-                                                                                    {{ $employee->status == 'active' ? 'selected' : '' }}>
-                                                                                    Active</option>
-                                                                                <option value="banned"
-                                                                                    {{ $employee->status == 'banned' ? 'selected' : '' }}>
-                                                                                    Banned</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Button Update Employee -->
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary">
-                                                                        Update Employee
-                                                                    </button>
-                                                                </div>
-
-                                                            </form>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <form action="{{ route('karyawan.destroy', $employee->karyawan->id) }}"
-                                                method="POST" class="d-inline delete-form">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="btn btn-sm btn-danger rounded-pill text-bg-danger btn-delete">
-                                                    <span class="text">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                            height="24" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
-                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                            <path d="M4 7l16 0" />
-                                                            <path d="M10 11l0 6" />
-                                                            <path d="M14 11l0 6" />
-                                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                                        </svg>
-                                                    </span>
-                                                    Hapus
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td class="sort-city">
-                                            No records found
-                                        </td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editEmployee" tabindex="-1" aria-labelledby="editEmployeeLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="editEmployeeContent">
+                {{-- Isi modal akan dimuat via Ajax --}}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let table = $('#karyawan').DataTable({
+                responsive: true,
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: '{{ route('karyawan.data') }}',
+                    data: function(d) {
+                        d.name = $('#employee-name').val();
+                    }
+                },
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        className: 'text-center',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'photo',
+                        name: 'photo',
+                        className: 'text-center'
+                    },
+                    {
+                        data: 'nip',
+                        name: 'nip',
+                        className: 'text-center'
+                    },
+                    {
+                        data: 'name',
+                        name: 'name',
+                        className: 'text-center'
+                    },
+                    {
+                        data: 'username',
+                        name: 'username',
+                        className: 'text-center'
+                    },
+                    {
+                        data: 'jabatan',
+                        name: 'jabatan',
+                        className: 'text-center'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        className: 'text-center',
+                        orderable: false,
+                        searchable: false
+                    }
+                ],
+                language: {
+                    processing: '<i class="fa fa-spinner fa-spin"></i> Loading...',
+                    search: 'Search:',
+                    lengthMenu: 'Show _MENU_ entries',
+                    info: 'Showing _START_ to _END_ of _TOTAL_ entries',
+                    infoEmpty: 'No entries found',
+                    infoFiltered: '(filtered from _MAX_ total entries)',
+                    paginate: {
+                        first: 'First',
+                        last: 'Last',
+                        next: 'Next',
+                        previous: 'Previous'
+                    }
+                },
+            });
+
+            // Submit filter
+            $('#karyawan-form').on('submit', function(e) {
+                e.preventDefault();
+                table.ajax.reload();
+                $('#filterEmployee').modal('hide');
+            });
+
+            // Tambahan: tombol filter juga bisa trigger submit form
+            $('[form="karyawan-form"]').on('click', function() {
+                $('#karyawan-form').submit();
+            });
+
+            // Handle edit button click
+            $(document).on('click', '.btn-edit', function() {
+                let employeeId = $(this).data('id');
+                $.ajax({
+                    url: `/karyawan/karyawan/${employeeId}/edit`,
+                    type: 'GET',
+                    success: function(data) {
+                        $('#editEmployeeContent').html(data);
+                        $('#editEmployee').modal('show');
+                    },
+                    error: function(xhr) {
+                        console.error('Error fetching employee data:', xhr);
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Failed to load employee data. Please try again.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

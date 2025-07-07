@@ -84,35 +84,35 @@
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
                                                     <input type="text" name="nama_lokasi" class="form-control"
-                                                        id="floatingInput" placeholder="Please Input Name Location">
-                                                    <label for="floatingInput">Name Location</label>
+                                                        id="lokasiInput" placeholder="Please Input Name Location">
+                                                    <label for="lokasiInput">Name Location</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
-                                                    <textarea class="form-control" name="alamat_lokasi" placeholder="Please Input Address Location" id="floatingTextarea"></textarea>
-                                                    <label for="floatingTextarea">Address Location</label>
+                                                    <textarea class="form-control" name="alamat_lokasi" placeholder="Please Input Address Location" id="addressTextarea"></textarea>
+                                                    <label for="addressTextarea">Address Location</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
                                                     <input type="text" name="latitude" class="form-control"
-                                                        id="floatingInput" placeholder="Please Input Latitude">
-                                                    <label for="floatingInput">Latitude</label>
+                                                        id="latitudeInput" placeholder="Please Input Latitude">
+                                                    <label for="latitudeInput">Latitude</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
                                                     <input type="text" name="longitude" class="form-control"
-                                                        id="floatingInput" placeholder="Please Input Longitude">
-                                                    <label for="floatingInput">Longitude</label>
+                                                        id="longitudeInput" placeholder="Please Input Longitude">
+                                                    <label for="longitudeInput">Longitude</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
                                                     <input type="text" name="radius" class="form-control"
-                                                        id="floatingInput" placeholder="Please Input Radius">
-                                                    <label for="floatingInput">Radius</label>
+                                                        id="radiusInput" placeholder="Please Input Radius">
+                                                    <label for="radiusInput">Radius</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -126,15 +126,15 @@
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
                                                     <input type="time" name="jam_masuk" class="form-control"
-                                                        id="floatingInput" placeholder="Please Input Time In">
-                                                    <label for="floatingInput">Time In</label>
+                                                        id="timeInInput" placeholder="Please Input Time In">
+                                                    <label for="timeInInput">Time In</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-floating mb-3">
                                                     <input type="time" name="jam_pulang" class="form-control"
-                                                        id="floatingInput" placeholder="Please Input Time Out">
-                                                    <label for="floatingInput">Time Out</label>
+                                                        id="timeOutInput" placeholder="Please Input Time Out">
+                                                    <label for="timeOutInput">Time Out</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -156,7 +156,7 @@
                 <div class="col-6">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary float-end" id="filter-location" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
+                        data-bs-target="#filterLocation">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -164,32 +164,35 @@
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
                                 <path d="M21 21l-6 -6" />
-                            </svg></span> Filter Location
+                            </svg>
+                        </span> Filter Location
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    <div class="modal fade" id="filterLocation" tabindex="-1" aria-labelledby="filterLocationLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Filter Location</h1>
+                                    <h1 class="modal-title fs-5" id="filterLocationLabel">Filter Location</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form id="lokasi-form">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingInput"
-                                                placeholder="Masukan Nama Lokasi">
-                                            <label for="floatingInput">Name</label>
+                                            <input type="text" class="form-control" id="filterLokasi"
+                                                name="nama_lokasi" placeholder="Masukan Nama Lokasi">
+                                            <label for="filterLokasi">Name</label>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Filter Location</button>
+                                    <button type="button" class="btn btn-primary" form="lokasi-form">
+                                        Filter Location
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -197,248 +200,133 @@
                 </div>
             </div>
             <div class="card mt-3">
-                <div class="card-body p-0">
+                <div class="card-body">
                     <div id="table-default" class="table-responsive">
-                        <table id="karyawan" class="table table-karyawan">
+                        <table id="datatable-location" class="table table-vcenter card-table table-striped">
                             <thead>
                                 <tr>
-                                    <th>
-                                        <button class="table-sort" data-sort="sort-name">
-                                            No
-                                        </button>
-                                    </th>
-                                    <th>
-                                        <button class="table-sort" data-sort="sort-name">
-                                            Name Location
-                                        </button>
-                                    </th>
-                                    <th>
-                                        <button class="table-sort" data-sort="sort-name">
-                                            Address
-                                        </button>
-                                    </th>
-                                    <th>
-                                        <button class="table-sort" data-sort="sort-name">
-                                            Latitude/Longitude
-                                        </button>
-                                    </th>
-                                    <th>
-                                        <button class="table-sort" data-sort="sort-name">
-                                            Radius
-                                        </button>
-                                    </th>
-                                    <th>
-                                        <button class="table-sort" data-sort="sort-name">
-                                            Action
-                                        </button>
-                                    </th>
+                                    <th>No</th>
+                                    <th>Name Location</th>
+                                    <th>Address</th>
+                                    <th>Latitude/Longitude</th>
+                                    <th>Radius</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody class="table-tbody">
-                                @php
-                                    $no = 1;
-                                @endphp
-                                @forelse ($locations as $location)
-                                    <tr>
-                                        <td class="sort-city">
-                                            {{ $no++ }}
-                                        </td>
-                                        <td class="sort-city">
-                                            {{ $location->nama_lokasi }}
-                                        </td>
-                                        <td class="sort-city">
-                                            {{ $location->alamat_lokasi }}
-                                        </td>
-                                        <td class="sort-city">
-                                            {{ $location->latitude }}/{{ $location->longitude }}
-                                        </td>
-                                        <td class="sort-city">
-                                            {{ $location->radius }}
-                                        </td>
-                                        <td class="sort-city">
-                                            <button type="button" class="btn btn-sm btn-primary btn-edit rounded-pill"
-                                                data-bs-toggle="modal" data-bs-target="#editLocation-{{ $location->id }}">
-                                                <span class="text">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                        <path
-                                                            d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
-                                                        <path
-                                                            d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
-                                                        <path d="M16 5l3 3" />
-                                                    </svg>
-                                                </span>
-                                                Edit
-                                            </button>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="editLocation-{{ $location->id }}" tabindex="-1"
-                                                aria-labelledby="editLocationLabel-{{ $location->id }}"
-                                                aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                                <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                        height="24" viewBox="0 0 24 24" fill="none"
-                                                                        stroke="currentColor" stroke-width="2"
-                                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                                        class="icon icon-tabler icons-tabler-outline icon-tabler-users-group">
-                                                                        <path stroke="none" d="M0 0h24v24H0z"
-                                                                            fill="none" />
-                                                                        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                                                        <path
-                                                                            d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
-                                                                        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                                                        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
-                                                                        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                                                                        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
-                                                                    </svg>
-                                                                </span>
-                                                                Update Location
-                                                            </h1>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form method="POST"
-                                                                action="{{ route('lokasi-presensi.update', $location->id) }}">
-                                                                @csrf
-                                                                @method('PUT')
-
-                                                                <div class="row">
-                                                                    <div class="col-12">
-                                                                        <div class="form-floating mb-3">
-                                                                            <input type="text" name="nama_lokasi"
-                                                                                class="form-control" id="floatingInput"
-                                                                                value="{{ $location->nama_lokasi }}">
-                                                                            <label for="floatingInput">
-                                                                                Name Location
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <div class="form-floating mb-3">
-                                                                            <textarea class="form-control" name="alamat_lokasi" id="floatingTextarea">{{ $location->alamat_lokasi }}</textarea>
-                                                                            <label for="floatingTextarea">
-                                                                                Address Location
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <div class="form-floating mb-3">
-                                                                            <input type="text" name="latitude"
-                                                                                class="form-control" id="floatingInput"
-                                                                                value="{{ $location->latitude }}">
-                                                                            <label for="floatingInput">Latitude</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <div class="form-floating mb-3">
-                                                                            <input type="text" name="longitude"
-                                                                                class="form-control" id="floatingInput"
-                                                                                value="{{ $location->longitude }}">
-                                                                            <label for="floatingInput">Longitude</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <div class="form-floating mb-3">
-                                                                            <input type="text" name="radius"
-                                                                                class="form-control" id="floatingInput"
-                                                                                value="{{ $location->radius }}">
-                                                                            <label for="floatingInput">Radius</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <select class="form-select mb-3" name="zona_waktu">
-                                                                            <option value="WIB"
-                                                                                {{ $location->zona_waktu == 'WIB' ? 'selected' : '' }}>
-                                                                                WIB
-                                                                            </option>
-                                                                            <option value="WITA"
-                                                                                {{ $location->zona_waktu == 'WITA' ? 'selected' : '' }}>
-                                                                                WITA
-                                                                            </option>
-                                                                            <option value="WIT"
-                                                                                {{ $location->zona_waktu == 'WIT' ? 'selected' : '' }}>
-                                                                                WIT
-                                                                            </option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <div class="form-floating mb-3">
-                                                                            <input type="time" name="jam_masuk"
-                                                                                class="form-control" id="floatingInput"
-                                                                                value="{{ \Carbon\Carbon::parse($location->jam_masuk)->format('H:i') }}">
-                                                                            <label for="floatingInput">Time In</label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <div class="form-floating mb-3">
-                                                                            <input type="time" name="jam_pulang"
-                                                                                class="form-control" id="floatingInput"
-                                                                                value="{{ \Carbon\Carbon::parse($location->jam_pulang)->format('H:i') }}">
-                                                                            <label for="floatingInput">Time Out</label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Button Update Location -->
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary">
-                                                                        Update Location
-                                                                    </button>
-                                                                </div>
-
-                                                            </form>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <form action="{{ route('lokasi-presensi.destroy', $location->id) }}"
-                                                method="POST" class="d-inline delete-form">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="btn btn-sm btn-danger rounded-pill text-bg-danger btn-delete">
-                                                    <span class="text">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                            height="24" viewBox="0 0 24 24" fill="none"
-                                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
-                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                            <path d="M4 7l16 0" />
-                                                            <path d="M10 11l0 6" />
-                                                            <path d="M14 11l0 6" />
-                                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                                        </svg>
-                                                    </span>
-                                                    Hapus
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td class="sort-city">
-                                            No records found
-                                        </td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editLocation" tabindex="-1" aria-labelledby="editLocationLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="editLocationContent">
+                {{-- Isi modal akan dimuat via Ajax --}}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let table = $('#datatable-location').DataTable({
+                responsive: true,
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "{{ route('lokasi-presensi.data') }}",
+                    data: function(d) {
+                        d.nama_lokasi = $('#filterLokasi').val();
+                    }
+                },
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        className: 'text-center',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'nama_lokasi',
+                        name: 'nama_lokasi',
+                        className: 'text-center'
+                    },
+                    {
+                        data: 'alamat_lokasi',
+                        name: 'alamat_lokasi',
+                        className: 'text-center'
+                    },
+                    {
+                        data: 'latlng',
+                        name: 'latlng',
+                        className: 'text-center',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'radius',
+                        name: 'radius',
+                        className: 'text-center'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        className: 'text-center',
+                        orderable: false,
+                        searchable: false
+                    }
+                ],
+                language: {
+                    processing: '<i class="fa fa-spinner fa-spin"></i> Loading...',
+                    search: 'Search:',
+                    lengthMenu: 'Show _MENU_ entries',
+                    info: 'Showing _START_ to _END_ of _TOTAL_ entries',
+                    infoEmpty: 'No entries found',
+                    infoFiltered: '(filtered from _MAX_ total entries)',
+                    paginate: {
+                        first: 'First',
+                        last: 'Last',
+                        next: 'Next',
+                        previous: 'Previous'
+                    }
+                },
+            });
+
+            // Submit filter
+            $('#lokasi-form').on('submit', function(e) {
+                e.preventDefault();
+                table.ajax.reload();
+                $('#filterLocation').modal('hide');
+            });
+
+            // Tambahan: tombol filter juga bisa trigger submit form
+            $('[form="lokasi-form"]').on('click', function() {
+                $('#lokasi-form').submit();
+            });
+
+            // Handle edit button click
+            $(document).on('click', '.btn-edit', function() {
+                let locationId = $(this).data('id');
+                $.ajax({
+                    url: `/master-data/lokasi-presensi/${locationId}/edit`,
+                    type: 'GET',
+                    success: function(data) {
+                        $('#editLocationContent').html(data);
+                        $('#editLocation').modal('show');
+                    },
+                    error: function(xhr) {
+                        console.error('Error fetching location data:', xhr);
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Failed to load location data. Please try again.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

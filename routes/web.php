@@ -76,10 +76,18 @@ Route::middleware(['auth'])->group(function () {
                 '/karyawan',
                 [KaryawanController::class, 'index']
             )->name('karyawan.index');
+            Route::get(
+                '/karyawan/data',
+                [KaryawanController::class, 'data']
+            )->name('karyawan.data');
             Route::post(
                 '/karyawan',
                 [KaryawanController::class, 'store']
             )->name('karyawan.store');
+            Route::get(
+                '/karyawan/{karyawan}/edit',
+                [KaryawanController::class, 'edit']
+            )->name('karyawan.edit');
             Route::put(
                 '/karyawan/{karyawan}',
                 [KaryawanController::class, 'update']
@@ -101,10 +109,18 @@ Route::middleware(['auth'])->group(function () {
                 '/jabatan',
                 [JabatanController::class, 'index']
             )->name('jabatan.index');
+            Route::get(
+                '/jabatan/data',
+                [JabatanController::class, 'data']
+            )->name('jabatan.data');
             Route::post(
                 '/jabatan',
                 [JabatanController::class, 'store']
             )->name('jabatan.store');
+            Route::get(
+                '/jabatan/{jabatan}/edit',
+                [JabatanController::class, 'edit']
+            )->name('jabatan.edit');
             Route::put(
                 '/jabatan/{jabatan}',
                 [JabatanController::class, 'update']
@@ -123,10 +139,18 @@ Route::middleware(['auth'])->group(function () {
                 '/lokasi-presensi',
                 [LokasiPresensiController::class, 'index']
             )->name('lokasi-presensi.index');
+            Route::get(
+                '/lokasi-presensi/data',
+                [LokasiPresensiController::class, 'data']
+            )->name('lokasi-presensi.data');
             Route::post(
                 '/lokasi-presensi',
                 [LokasiPresensiController::class, 'store']
             )->name('lokasi-presensi.store');
+            Route::get(
+                '/lokasi-presensi/{lokasiPresensi}/edit',
+                [LokasiPresensiController::class, 'edit']
+            )->name('lokasi-presensi.edit');
             Route::put(
                 '/lokasi-presensi/{lokasi_presensi}',
                 [LokasiPresensiController::class, 'update']
