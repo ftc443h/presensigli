@@ -1,21 +1,57 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RekapPresensiController;
 use App\Http\Controllers\KetidakhadiranController;
 use App\Http\Controllers\LokasiPresensiController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 Auth::routes();
 
 Route::get('/', function () {
     return view('auth.login');
 });
+
+Route::get(
+    '/forgot-password',
+    [ForgotPasswordController::class, 'showRequestForm']
+)->name('auth.passwords.request');
+Route::post(
+    '/forgot-password',
+    [ForgotPasswordController::class, 'sendOTP']
+)->name('auth.passwords.email')
+    ->middleware('throttle:otp');
+Route::post(
+    '/resend-otp',
+    [ForgotPasswordController::class, 'resendOTP']
+)->name('auth.passwords.resend-otp')
+    ->middleware('throttle:otp');
+
+Route::get(
+    '/verify-otp',
+    [ForgotPasswordController::class, 'showVerifyForm']
+)->name('auth.passwords.verify-otp');
+Route::post(
+    '/verify-otp',
+    [ForgotPasswordController::class, 'verifyOTP']
+)->name('auth.passwords.verify');
+
+Route::get(
+    '/reset-password',
+    [ForgotPasswordController::class, 'showResetForm']
+)->name('auth.passwords.reset');
+Route::post(
+    '/reset-password',
+    [ForgotPasswordController::class, 'resetPassword']
+)->name('auth.passwords.update');
+
 
 Route::middleware(['auth'])->group(function () {
 

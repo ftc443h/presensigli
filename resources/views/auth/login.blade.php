@@ -69,9 +69,13 @@
                                     <div class="mb-2">
                                         <label class="form-label">
                                             Password
-                                            <span class="form-label-description">
-                                                <a href="./forgot-password.html">I forgot password</a>
-                                            </span>
+                                            @if (Route::has('password.request'))
+                                                <span class="form-label-description">
+                                                    <a class="btn btn-link" href="{{ route('auth.passwords.request') }}">
+                                                        {{ __('Forgot Your Password?') }}
+                                                    </a>
+                                                </span>
+                                            @endif
                                         </label>
                                         <div class="input-group input-group-flat">
                                             <input type="password" class="form-control" name="password"
@@ -86,7 +90,8 @@
                                                         <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
                                                         <path
                                                             d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
-                                                    </svg></a>
+                                                    </svg>
+                                                </a>
                                             </span>
                                         </div>
                                     </div>
@@ -296,6 +301,16 @@
                 icon: "error",
                 title: "Oops...",
                 html: `{!! implode('<br>', $errors->all()) !!}`,
+            });
+        </script>
+    @endif
+
+    @if (session('status'))
+        <script>
+            Swal.fire({
+                icon: "success",
+                title: "Success",
+                text: "{{ session('status') }}",
             });
         </script>
     @endif

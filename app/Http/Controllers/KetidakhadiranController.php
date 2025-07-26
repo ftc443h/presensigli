@@ -289,10 +289,10 @@ class KetidakhadiranController extends Controller
             })
             ->addColumn('status_pengajuan', function ($row) {
                 return match ($row->status_pengajuan) {
-                    'pending' => '<span class="badge bg-warning text-dark badge-pill">PENDING</span>',
-                    'approved' => '<span class="badge bg-success badge-pill">APPROVED</span>',
-                    'rejected' => '<span class="badge bg-danger badge-pill">REJECTED</span>',
-                    default => '<span class="badge bg-secondary badge-pill">UNKNOWN</span>',
+                    'pending' => '<span class="badge bg-warning text-dark badge-pill">Pending</span>',
+                    'approved' => '<span class="badge bg-success text-light badge-pill">Approved</span>',
+                    'rejected' => '<span class="badge bg-danger text-light badge-pill">Rejected</span>',
+                    default => '<span class="badge bg-secondary badge-pill">Unknown</span>',
                 };
             })
             ->addColumn('action', function ($row) {

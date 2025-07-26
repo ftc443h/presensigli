@@ -48,7 +48,7 @@
                 @endforeach
 
                 <!-- Chart -->
-                <div class="col-md-6 mt-4">
+                <div class="col-md-12 mt-4">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Grafik Kehadiran Karyawan</h3>

@@ -1,47 +1,53 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+    <div class="container py-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-10">
+                <div class="card shadow-sm">
+                    <div class="row g-0">
+                        {{-- Ilustrasi --}}
+                        <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center bg-light">
+                            <img src="{{ asset('images/request-otp-illustration.png') }}" alt="Request OTP Illustration"
+                                class="img-fluid p-4" style="max-height: 320px;">
                         </div>
-                    @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        {{-- Form --}}
+                        <div class="col-md-6">
+                            <div class="card-header bg-white text-center border-0 mt-5">
+                                <h5 class="mb-0 fw-bold">
+                                    {{ __('Forgot your password?') }}
+                                </h5> &nbsp;
+                                <small class="text-muted">
+                                    {{ __('We’ll send you a One-Time Password (OTP) to reset it.') }}
+                                </small>
                             </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
+                            <div class="card-body">
+                                <form method="POST" action="{{ route('auth.passwords.email') }}">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">
+                                            {{ __('Email Address') }}
+                                        </label>
+                                        <input id="email" type="email"
+                                            class="form-control" name="email"
+                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Send OTP') }}
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
+                            <p class="text-center mt-3 small text-muted">
+                                <i class="bi bi-lock-fill me-1"></i>
+                                {{ __('Your information is secure and protected.') }}
+                            </p>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

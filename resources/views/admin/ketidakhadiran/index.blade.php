@@ -56,13 +56,13 @@
                                     </div>
 
                                     <div class="modal-body">
-                                        <div class="form-floating mb-3">
-                                            <label for="start_date">Start Date</label>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="start_date">Start Date</label>
                                             <input type="date" id="start_date" name="start_date" class="form-control"
                                                 required>
                                         </div>
-                                        <div class="form-floating mb-3">
-                                            <label for="end_date">End Date</label>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="end_date">End Date</label>
                                             <input type="date" id="end_date" name="end_date" class="form-control"
                                                 required>
                                         </div>
