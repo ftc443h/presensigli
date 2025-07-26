@@ -26,7 +26,7 @@
                                 {{ $otp }}
                             </p>
                             <p style="color: #888;">
-                                Kode kamu akan kadaluwarsa dalam 10 menit.
+                                Kode kamu akan kadaluwarsa dalam 2 menit.
                             </p>
                             <p style="font-size: 13px; color: #999; margin-top: 10px;">
                                 Sistem Web Karyawan GLI by PT. Global Lintas Iramada Network
